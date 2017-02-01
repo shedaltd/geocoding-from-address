@@ -16,7 +16,7 @@ function readFile(file) {
 
     var csvStream = csv()
         .on("data", function(data){
-            sububrs.push(data[2]);
+            sububrs.push({id:data[0], address: data[2]});
         })
         .on("end", function(){
             getGeo();
@@ -32,7 +32,7 @@ function getGeo() {
             function () {
                 var _i = i;
                 setTimeout(function () {
-                    var url = 'https://maps.google.com/maps/api/geocode/json?'+querystring.stringify({address: sububrs[_i], key: 'AIzaSyD3jh46tgveH5e4D7hepU8Uice5wJk_bnQ'});
+                    var url = 'https://maps.google.com/maps/api/geocode/json?'+querystring.stringify({address: sububrs[_i].address, key: 'AIzaSyD3jh46tgveH5e4D7hepU8Uice5wJk_bnQ'});
 
                     https.get(url, (response) => {
                         var body = '';
@@ -45,7 +45,7 @@ function getGeo() {
                             if (result) {
                                 var lat = result.geometry.location.lat;
                                 var long = result.geometry.location.lng;
-                                console.log(sububrs[_i] + "," + lat + "," + long);
+                                console.log(sububrs[_i].id+","+sububrs[_i].address + "," + lat + "," + long);
                             }
                         });
 
