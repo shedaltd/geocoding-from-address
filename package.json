@@ -1,0 +1,19 @@
+{
+  "name": "google-geo-from-address",
+  "version": "1.0.0",
+  "description": "Get latitute and longtitude from Google Map API based on provided address",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "geo-from-address": "./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "fast-csv": "^2.3.0",
+    "superagent": "^3.3.2"
+  }
+}

@@ -1,0 +1,9 @@
+# Mac auto generated network file
+.DS_Store
+.DS_Store/*
+
+# IDE
+.idea
+
+# node_module
+node_modules
